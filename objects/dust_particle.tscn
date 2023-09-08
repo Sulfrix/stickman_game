@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2x0q1l4qn6xn"]
+
+[ext_resource type="Script" path="res://scripts/object_scripts/dust_particle.gd" id="1_dlqrl"]
+[ext_resource type="Texture2D" uid="uid://coo3ax1q7qkgt" path="res://assets/sprites/tile/black.png" id="1_pdfj8"]
+
+[node name="DustParticle" type="Node2D"]
+script = ExtResource("1_dlqrl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_pdfj8")

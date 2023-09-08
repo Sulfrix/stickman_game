@@ -1,0 +1,32 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cbvev7gaowfc5"]
+
+[ext_resource type="PackedScene" uid="uid://wyiyohpjgue7" path="res://objects/crate.tscn" id="1_4s3vf"]
+[ext_resource type="Texture2D" uid="uid://coo3ax1q7qkgt" path="res://assets/sprites/tile/black.png" id="1_gsm0u"]
+[ext_resource type="Texture2D" uid="uid://bunwm0gcgo8f" path="res://assets/sprites/tile/checkerboard.png" id="3_aar52"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j3y3t"]
+resource_name = "Stuffs"
+scenes/1/scene = ExtResource("1_4s3vf")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_201u2"]
+texture = ExtResource("1_gsm0u")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pqsto"]
+texture = ExtResource("3_aar52")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 3
+sources/1 = SubResource("TileSetAtlasSource_201u2")
+sources/0 = SubResource("TileSetScenesCollectionSource_j3y3t")
+sources/3 = SubResource("TileSetAtlasSource_pqsto")

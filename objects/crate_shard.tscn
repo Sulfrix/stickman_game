@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvbxarcwq0q6s"]
+
+[ext_resource type="Texture2D" uid="uid://df6f2csksa1do" path="res://assets/sprites/tile/crateshards.png" id="1_ub5ay"]
+[ext_resource type="Script" path="res://scripts/object_scripts/crate_shard.gd" id="2_ga7va"]
+
+[node name="CrateShard" type="Sprite2D"]
+show_behind_parent = true
+z_index = 1
+texture = ExtResource("1_ub5ay")
+hframes = 20
+script = ExtResource("2_ga7va")

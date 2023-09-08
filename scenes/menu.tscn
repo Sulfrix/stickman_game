@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqbj053eh4g2t"]
+
+[ext_resource type="Script" path="res://scripts/object_scripts/scene_button.gd" id="1_1y730"]
+[ext_resource type="PackedScene" uid="uid://4752ypdpysie" path="res://scenes/test_scene.tscn" id="2_1yfp6"]
+[ext_resource type="PackedScene" uid="uid://dkrcdo5scfaxy" path="res://scenes/crates_crates_crates.tscn" id="3_61t86"]
+[ext_resource type="PackedScene" uid="uid://cj3p5p3ctmg5v" path="res://scenes/anim_compare.tscn" id="4_3qy1r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prototype - the final game (if any) will be different
+tbh i don't think there will be a final game"
+
+[node name="TestSceneButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Test Scene"
+script = ExtResource("1_1y730")
+go_to = ExtResource("2_1yfp6")
+
+[node name="CrateSceneButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Crates Scene"
+script = ExtResource("1_1y730")
+go_to = ExtResource("3_61t86")
+
+[node name="OldPlayer" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "View the old animations, drawn in MSPaint"
+script = ExtResource("1_1y730")
+go_to = ExtResource("4_3qy1r")
+
+[node name="Controls" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "WASD or Arrow Keys - Move
+Space or Up - Jump
+Shift, Z, or LMB - Attack
+Down + Jump - Drop from ledge (it's like Spelunky!)
+RMB or Enter - Walk (helps with precisely positioning yourself)
+* There's also controller support"
+
+[node name="RichControls" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[table=2]
+[cell]WASD or Arrow Keys		[/cell][cell]Move[/cell]
+[cell]Space or Up[/cell][cell]Jump[/cell]
+[cell]Shift, Z, or LMB[/cell][cell]Attack[/cell]
+[cell]Down + Jump[/cell][cell]Drop from ledge [font_size=12](it's like Spelunky!)[/font_size][/cell]
+[cell]RMB or Enter[/cell][cell]Walk [font_size=12](helps with precisely positioning yourself)[/font_size][/cell]
+[/table]
+[font_size=12]* Controllers are also supported, their bindings should be intuitive[/font_size]"
+fit_content = true

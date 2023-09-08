@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://n648i75ep700"]
+
+[ext_resource type="Shader" path="res://assets/shaders/pink_transparency.gdshader" id="1_umncx"]
+
+[resource]
+shader = ExtResource("1_umncx")

@@ -1,0 +1,4 @@
+# Ignore exports
+*
+# Except this file
+!.gitignore
