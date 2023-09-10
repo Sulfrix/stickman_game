@@ -23,11 +23,11 @@ func _process(delta):
 	shake = lerpf(shake, 0, 10*delta)
 	
 
-func _on_hurtbox_hit(damage: float, force: Vector2, _hitbox: Hitbox):
-	health -= damage
-	shake += damage
+func _on_hurtbox_hit(hitinfo: HitInfo):
+	health -= hitinfo.damage
+	shake += hitinfo.damage
 	if health <= 0:
-		destroy(force)
+		destroy(hitinfo.force)
 
 func destroy(force: Vector2):
 	emit_signal("destroyed")

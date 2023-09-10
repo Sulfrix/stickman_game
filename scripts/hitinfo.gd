@@ -2,14 +2,12 @@ class_name HitInfo
 extends RefCounted
 
 var damage: float = 0.0
-var knockback_direction: Vector2 = Vector2.UP
-var knockback_force: float = 0.0
+var force: Vector2 = Vector2.ZERO
+var stunning: bool = false
 
-enum DamageType {BASIC, FIRE}
-var damage_type: DamageType = DamageType.BASIC
+var damage_type: Enums.DamageType = Enums.DamageType.BASIC
 
-enum DamageTeam {PLAYER, ENEMY}
-var team: DamageTeam = DamageTeam.PLAYER
+var team: Enums.Team = Enums.Team.PLAYER
 
 var hitbox: Hitbox
 var attacker: Node2D
@@ -23,8 +21,8 @@ func _init():
 func copy() -> HitInfo:
 	var out = HitInfo.new()
 	out.damage = damage
-	out.knockback_direction = knockback_direction
-	out.knockback_force = knockback_force
+	out.force = force
+	out.stunning = stunning
 	
 	out.damage_type = damage_type
 	

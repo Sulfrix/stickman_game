@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SpawnTopLayer="res://scripts/spawn_top_layer.gd"
+Enums="*res://scripts/enums.gd"
 
 [display]
 

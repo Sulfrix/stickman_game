@@ -13,6 +13,8 @@ extends Area2D
 	set(value):
 		knockback_direction = value.normalized()
 @export var knockback_force = 0.0
+@export var team: Enums.Team = Enums.Team.NEUTRAL
+@export var stunning: bool = false
 
 @onready var hit_objects: Array[Node2D] = []
 
@@ -37,14 +39,25 @@ func _draw():
 		draw_line(Vector2.ZERO, knockback_direction*knockback_force, Color.WEB_GRAY, 4.0)
 
 func area_entered(body: Area2D):
-	print("Hitting: " + str(body))
 	if body is Hurtbox and !hit_objects.has(body.owner):
 		var hb = body as Hurtbox
 		if hb.owner == owner:
-			print("Hit canceled: same owner")
 			return
-		print(global_scale)
-		hb.emit_signal("hit", damage, global_transform.basis_xform(knockback_direction*knockback_force), self)
+		if hb.team == team:
+			return
+		var hitinfo = HitInfo.new()
+		hitinfo.damage = damage
+		hitinfo.force = global_transform.basis_xform(knockback_direction*knockback_force)
+		hitinfo.team = team
+		hitinfo.stunning = stunning
+		
+		hitinfo.attacker = owner
+		hitinfo.hitbox = self
+		
+		hitinfo.victim = body.owner
+		hitinfo.victim_hurtbox = body
+		
+		hb.emit_signal("hit", hitinfo)
 		hit_objects.append(hb.owner)
 
 
